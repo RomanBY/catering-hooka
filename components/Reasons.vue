@@ -5,7 +5,16 @@
         align="center"
         justify="center"
       >
-        <h1 class="display-2 font-weight-thin mb-4 text-center reasons__title mt-4">Hookah cartel – это новый уровень кальянного кейтеринга.</h1>
+        <v-col
+          :cols=" isDesktop ? 8 : 12"
+        >
+          <h1 class="display-2 font-weight-bold mb-4 text-center reasons__title mt-4 black--text">Почему Вам стоит сделать <br> заказ у нас?</h1>
+        </v-col>
+        <v-col
+          :cols=" isDesktop ? 8 : 12"
+        >
+          <h2 class="text-center mt-3 font-weight-thin black--text">Прокат от "ДЫМнаДОМ" — это не только вкусный кальян, но и значительные преимущества</h2>
+        </v-col>
       </v-row>
       <v-row>
         <v-col
@@ -45,17 +54,17 @@
       {
         title: 'Уникальность',
         description: 'Для кальянного бара  мы предлагаем не только традиционные арабские кальяны, но и  эксклюзивные дизайнерские кальяны ручной работы , которые несомненно  подчеркнут оригинальность, самобытность и статус Вашего заведения.  Кальяны подбираются по принципу соответствия их стилевого решения дизайну интерьера заведения.',
-        imageUrl: 'https://hookahcartel.ru/assets/images/icons/star.svg'
+        imageUrl: require('../assets/img/images/star.png')
       },
       {
         title: 'Квалификация',
         description: 'Мы проводим  мастер-классы и тренинги  для сотрудников  фирмы. Все работники проходят  ежемесячную аттестацию  по подтверждению своей квалификации. За каждым заведением-партнером закрепляется  супервайзер  от нашей компании, который  контролирует процесс работы персонала.',
-        imageUrl: 'https://hookahcartel.ru/assets/images/icons/users.svg'
+        imageUrl: require('../assets/img/images/person.png')
       },
       {
         title: 'Качество',
         description: 'Для своих кальянов  мы используем зарубежный уголь и табак высочайшего качества  премиальных брендов , таких как: Nakhla, Fumari, Golden Layalina, Starbuzz, Tangiers. Помимо традиционных кальянов, наше меню содержит оригинальные кальяны на различных овощах и фруктах, а также незабываемые кальянные коктейли.\n',
-        imageUrl: 'https://hookahcartel.ru/assets/images/icons/likelike.svg'
+        imageUrl: require('../assets/img/images/fingerup.png')
       }
     ]
 
@@ -71,7 +80,7 @@
     }
 
     &__title {
-      color: black;
+      color: white;
     }
   }
 

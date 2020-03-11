@@ -1,6 +1,11 @@
 <template>
   <div class="about">
-    <about-card/>
+    <about-card
+      v-for="(item, index) in cards"
+      :key="index"
+      :item="item"
+      :even="index % 2 === 0"
+    />
   </div>
 </template>
 
@@ -10,8 +15,6 @@
   import AboutCard from '~/components/CardInfo/AboutCard.vue'
   import { State } from 'vuex-class'
 
-
-
   @Component({
     components: {
       AboutCard
@@ -19,6 +22,18 @@
   })
   export default class About extends Base {
 
+    cards: object[] = [
+      {
+        title: 'Кальянный кейтеринг',
+        description: 'ДЫМнаДОМ предлагает услугу сопровождения мероприятий. Вы планируете корпоратив, свадьбу или день рождения? Тогда обустройте кальянную зону без которой сегодня не проходит ни один праздник. Кейтеринг — это выездное обслуживание банкетов кальянами, аренда кальянов с кальянщиками и всем необходимым реквизитом',
+        image: '/photo1.jpg'
+      },
+      {
+        title: 'Кальянный аутсорсинг',
+        description: 'Работаем с заведениями. Если вам необходим кальян в вашем кафе или ресторане, то мы готовы предоставить профессиональные кальянные услуги и проверенных кальянщиков. Предложение взаимовыгодное, поэтому мы сотрудничаем более чем с 30 заведениями по всей стране.',
+        image: '/photo2.jpg'
+      }
+    ]
     constructor () {
       super()
     }

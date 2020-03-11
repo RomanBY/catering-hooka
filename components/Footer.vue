@@ -40,11 +40,17 @@
                   <v-icon class="mr-2">mdi-email</v-icon>
                   qwerty@live.com
                 </p>
-                <p>
-                  <v-icon size="45">mdi-instagram</v-icon>
-                  <v-icon size="45">mdi-vk</v-icon>
-                  <v-icon size="45">mdi-telegram</v-icon>
-                </p>
+                <div>
+                  <v-btn
+                    v-for="(item, index) in socialNetworks"
+                    :key="index"
+                    class="mx-1"
+                    fab
+                    small
+                  >
+                    <v-icon>{{ item.icon }}</v-icon>
+                  </v-btn>
+                </div>
               </v-col>
             </v-row>
           </v-col>
@@ -86,6 +92,29 @@
     }
 
     number: string = '+375 (33) 333 33 33'
+
+    socialNetworks: object[] = [
+      {
+        icon: 'mdi-vk',
+        color: 'blue',
+        link: ''
+      },
+      {
+        icon: 'mdi-instagram',
+        color: 'orange',
+        link: ''
+      },
+      {
+        icon: 'mdi-telegram',
+        color: 'blue',
+        link: ''
+      },
+      {
+        icon: 'mdi-youtube',
+        color: 'red',
+        link: ''
+      }
+    ]
 
   }
 </script>

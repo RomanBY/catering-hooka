@@ -32,7 +32,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '@/plugins/aos.js', ssr: false }
+    { src: '@/plugins/aos.js', ssr: false },
+    { src: '@/plugins/setDevice.ts', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules

@@ -1,41 +1,44 @@
 <template>
   <div>
-    <main-info/>
-    <about/>
-    <parallax/>
-    <reasons/>
-    <prices/>
-    <contacts/>
+    <main-info />
+    <about />
+    <parallax />
+    <reasons />
+    <prices />
+    <process v-if="false" />
+    <contacts />
   </div>
 </template>
 
 <script lang="ts">
-  import Base from '../core/Base'
-  import { Component } from 'nuxt-property-decorator'
-  import MainInfo from '~/components/MainInfo.vue'
-  import Parallax from '~/components/Parallax.vue'
-  import Reasons from '~/components/Reasons.vue'
-  import Prices from '~/components/Prices.vue'
-  import About from '~/components/About.vue'
-  import Contacts from '~/components/Contacts.vue'
+import Base from '../core/Base'
+import { Component } from 'nuxt-property-decorator'
+import MainInfo from '~/components/MainInfo.vue'
+import Parallax from '~/components/Parallax.vue'
+import Reasons from '~/components/Reasons.vue'
+import Prices from '~/components/Prices.vue'
+import About from '~/components/About.vue'
+import Contacts from '~/components/Contacts.vue'
+import Process from '~/components/Process.vue'
 
-  @Component({
-    components: {
-      MainInfo,
-      About,
-      Parallax,
-      Reasons,
-      Prices,
-      Contacts
-    }
-  })
-  export default class extends Base {
-
-    constructor () {
-      super()
-    }
-
+@Component({
+  components: {
+    MainInfo,
+    About,
+    Parallax,
+    Reasons,
+    Prices,
+    Contacts,
+    Process
   }
+})
+export default class extends Base {
+
+  constructor () {
+    super()
+  }
+
+}
 </script>
 <style scoped lang="scss">
   @import "../assets/variables";

@@ -25,6 +25,7 @@
         >
           <v-form
             lazy-validation
+            ref="form"
           >
             <div data-aos="fade-up">
               <v-text-field
@@ -36,18 +37,24 @@
                 label="Имя"
                 color="blue-grey"
                 :rules="[val => (val || '').length > 2 || 'Введите имя']"
+                outlined
               />
             </div>
             <div data-aos="fade-up">
               <v-text-field
-                ref="contact"
+                ref="phone"
                 class="mb-3"
                 light
-                v-model="contact"
-                label="Контакты"
+                label="Телефон"
+                prefix="+375 "
                 color="blue-grey"
-                :counter="20"
-                :rules="[val => (val || '').length > 5 || 'Введите контакты для связи']"
+                outlined
+                v-model="phone"
+                v-mask="phoneMask"
+                :rules="phoneRules"
+                :error="validationErrors.phone && validationErrors.phone.length > 0"
+                :error-messages="validationErrors.phone && validationErrors.phone.length > 0 ? validationErrors.phone[0] : null"
+                @input="validationErrors.phone = []"
               />
             </div>
             <div data-aos="fade-up">
@@ -59,22 +66,15 @@
                 label="Сообщение"
                 color="blue-grey"
                 :counter="100"
-              />
-            </div>
-            <div data-aos="fade-up">
-              <v-checkbox
-                light
-                v-model="checkbox"
-                label="Согласен с политикой конфиденциальности"
+                :rules="[val => (val || '').length > 5 || 'Укажите интересующий вопрос']"
               />
             </div>
             <div data-aos="fade-up">
               <v-btn
                 light
-                :disabled="!checkbox"
                 color="white"
                 class="mr-4"
-                @click="getFeedback"
+                @click="sendMessage"
               >
                 Отправить
               </v-btn>
@@ -84,17 +84,17 @@
             v-model="showAlert"
             max-width="290"
           >
-            <v-card>
-              <v-card-title class="headline">Данные отправлены</v-card-title>
+            <v-card v-if="res">
+              <v-card-title class="headline">{{ res.status }}</v-card-title>
               <v-card-text>
-                Мы свяжемся с Вами в ближайшее время.
+                {{ res.message }}
               </v-card-text>
               <v-card-actions>
                 <div class="flex-grow-1"></div>
                 <v-btn
                   color="darken-1"
                   text
-                  @click="showAlert = false"
+                  @click="showAlert = false, $vuetify.goTo('html')"
                 >
                   OK
                 </v-btn>
@@ -110,38 +110,88 @@
 <script lang="ts">
   import Base from '../core/Base'
   import { Component } from 'nuxt-property-decorator'
+  import axios from 'axios'
+  // @ts-ignore
+  import { mask } from 'vue-the-mask'
 
-  @Component
+  interface Element extends Vue {
+    validate (): boolean
+  }
+
+  @Component({
+    directives: {
+      mask
+    }
+  })
   export default class Contacts extends Base {
-
     constructor () {
       super()
     }
-
-
-
     name: string = ''
-    contact: string = ''
+    phone: string = ''
+    phoneMask: string = '(##) ###-##-##'
+    phoneRules: ((arg0: string) => boolean | string)[] = [
+      v => !!v || 'Телефон обязательное поле',
+      v => v && v.length === 14 ? /[(](29|25|44|33)[)]\s\d{3}[ \- ]\d{2}[ \- ]\d{2}/.test(v) || 'Введите корректно номер телефона' : true
+    ]
+    validationErrors: any = {
+      phone: []
+    }
     message: string = ''
-    checkbox: boolean = false
     showAlert: boolean = false
+    res: object | null = null
 
-    getFeedback () {
-      this.showAlert = true
-      this.name = ''
-      this.contact = ''
-      this.message = ''
-      this.checkbox = false
-      Object.keys(this.form).forEach(f => {
-        // @ts-ignore
-        this.$refs[f].reset()
-      })
+    sendMessage () {
+      const form: Element = this.$refs.form as unknown as Element
+      if (form.validate() && this.checkPhoneLength()) {
+        this.getFeedback()
+      }
     }
 
-    get form () {
+    checkPhoneLength (): boolean {
+      if (this.formatPhone(this.phone).length === 12) {
+        return true
+      } else {
+        this.validationErrors.phone = ['Введите телефон полностью']
+        return false
+      }
+    }
+
+    formatPhone (val: string): string {
+      return '375' + parseInt(val.replace(/[^\d]/g, ''))
+    }
+
+    async getFeedback () {
+      const { status } = await axios.post('https://formspree.io/xrgknjey', {
+        name: this.name,
+        phone: '+375 ' + this.phone,
+        message: this.message
+      })
+      if (status === 200) {
+        this.res = {
+          status: 'Данные отправлены',
+          message: 'Мы свяжемся с Вами в ближайшее время.'
+        }
+        this.name = ''
+        this.phone = ''
+        this.message = ''
+        Object.keys(this.inputs).forEach(f => {
+          // @ts-ignore
+          this.$refs[f].reset()
+        })
+      } else {
+        this.res = {
+          status: 'Данные не отправлены',
+          message: 'Попробуйте отправить данные позже.'
+        }
+      }
+      this.showAlert = true
+    }
+
+    get inputs () {
       return {
         name: this.name,
-        contact: this.contact,
+        phone: this.phone,
         message: this.message
       }
     }

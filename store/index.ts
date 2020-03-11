@@ -14,6 +14,7 @@ export const mutations = {
 export const actions = {
   // @ts-ignore
   nuxtServerInit ({ commit }, ctx) {
+    console.log(ctx.isMobileOrTablet)
     commit('setDevice', ctx.isMobileOrTablet ? 'mobile' : 'desktop')
   }
 }

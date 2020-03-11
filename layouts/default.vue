@@ -13,16 +13,18 @@
         class="toolbar"
       >
         <v-img
-          max-width="30"
-          :src="require('~/assets/img/Logo-Main.svg')"
+          max-width="50"
+          :src="require('../assets/img/images/fog.png')"
           class="mr-3"
         />
-        <v-toolbar-title
-          class="toolbar__name"
-        >
-          <p class="mb-0">KALYAN<span class="toolbar__name-last">GO</span></p>
+        <v-toolbar-title>
+          <p class="mb-0 ml-5 toolbar__phone">Тел/Telegram:
+            <a
+              href="tel:+375255142795"
+              class="toolbar__phone-number"
+            >+375 (25) 514-27-95</a></p>
         </v-toolbar-title>
-        <v-spacer/>
+        <v-spacer />
         <v-toolbar-title
           v-if="false"
           v-for="(item, key) in menu"
@@ -57,7 +59,7 @@
         </v-btn>
       </v-app-bar>
       <v-content>
-        <nuxt/>
+        <nuxt />
       </v-content>
       <v-navigation-drawer
         v-model="rightDrawer"
@@ -70,7 +72,7 @@
           <v-img
             class="mx-auto"
             max-width="70"
-            :src="require('~/assets/img/Logo-Main.svg')"
+            :src="require('../assets/img/images/fog.png')"
           />
         </div>
         <v-list class="mt-5">
@@ -89,7 +91,7 @@
       <v-footer
         class="footer"
       >
-        <footer-base/>
+        <footer-base />
       </v-footer>
     </div>
     <v-scale-transition>
@@ -106,85 +108,87 @@
 </template>
 
 <script lang="ts">
-  import { Component } from 'nuxt-property-decorator'
-  import Base from '~/core/Base'
-  // eslint-disable-next-line camelcase
-  import { I_Menu } from '~/modules/intefaces'
-  import FooterBase from '~/components/Footer.vue'
+import { Component } from 'nuxt-property-decorator'
+import Base from '~/core/Base'
+// eslint-disable-next-line camelcase
+import { I_Menu } from '~/modules/intefaces'
+import FooterBase from '~/components/Footer.vue'
 
-  @Component({
-    components: {
-      FooterBase
-    }
-  })
-  export default class extends Base {
-      $vuetify: any
-    constructor () {
-      super()
-    }
-
-    scroll: number = 0
-    rightDrawer: boolean = false
-    // eslint-disable-next-line camelcase
-    menu: I_Menu.IMainManu[] = [
-      {
-        title: 'Главная',
-        goTo: '',
-        active: true,
-        url: '/',
-        visible: false
-      }
-    ]
-
-    navigation: I_Menu.INavigation[] = [
-      {
-        title: 'Главная',
-        goTo: 'html',
-        active: false
-      },
-      {
-        title: 'О нас',
-        goTo: '.about',
-        active: false
-      },
-      {
-        title: 'Почему мы',
-        goTo: '.reasons',
-        active: false
-      },
-      {
-        title: 'Цены',
-        goTo: '.prices',
-        active: false
-      },
-      {
-        title: 'Контакты',
-        goTo: '.contacts',
-        active: false
-      }
-    ]
-
-    onScroll (e: any) {
-      this.scroll = e.target.scrollingElement.scrollTop
-    }
-
-    goToTop () {
-      // @ts-ignore
-      this.$vuetify.goTo('html')
-    }
-
-    changePlace (anchor: string) {
-      if (this.$route.path === '/') {
-        this.$vuetify.goTo(anchor)
-      } else {
-        this.$router.push('/')
-        setTimeout(() => {
-          this.$vuetify.goTo(anchor)
-        }, 500)
-      }
-      this.rightDrawer = false
-    }
+@Component({
+  components: {
+    FooterBase
   }
+})
+export default class extends Base {
+  $vuetify: any
+
+  constructor () {
+    super()
+  }
+
+  scroll: number = 0
+  rightDrawer: boolean = false
+  // eslint-disable-next-line camelcase
+  menu: I_Menu.IMainManu[] = [
+    {
+      title: 'Главная',
+      goTo: '',
+      active: true,
+      url: '/',
+      visible: false
+    }
+  ]
+
+  // eslint-disable-next-line camelcase
+  navigation: I_Menu.INavigation[] = [
+    {
+      title: 'Главная',
+      goTo: 'html',
+      active: false
+    },
+    {
+      title: 'О нас',
+      goTo: '.about',
+      active: false
+    },
+    {
+      title: 'Почему мы',
+      goTo: '.reasons',
+      active: false
+    },
+    {
+      title: 'Цены',
+      goTo: '.prices',
+      active: false
+    },
+    {
+      title: 'Контакты',
+      goTo: '.contacts',
+      active: false
+    }
+  ]
+
+  onScroll (e: any) {
+    this.scroll = e.target.scrollingElement.scrollTop
+  }
+
+  goToTop () {
+    // @ts-ignore
+    this.$vuetify.goTo('html')
+  }
+
+  changePlace (anchor: string) {
+    if (this.$route.path === '/') {
+      this.$vuetify.goTo(anchor)
+    } else {
+      this.$router.push('/')
+      setTimeout(() => {
+        this.$vuetify.goTo(anchor)
+      }, 500)
+    }
+    this.rightDrawer = false
+  }
+}
 </script>
 <style scoped lang="scss">
   @import "../assets/variables";
@@ -209,6 +213,14 @@
   }
 
   .toolbar {
+    &__phone {
+      font-size: 14px;
+
+      &-number {
+        color: white !important;
+      }
+    }
+
     &__name {
       cursor: pointer;
       transition: 250ms;

@@ -4,7 +4,7 @@
     :src="require('../assets/img/bg/ab2.jpg')"
     height="600"
   >
-    <v-container>
+    <v-container :class="{ 'px-0': !isDesktop }">
       <v-row
         align="center"
         justify="center"
