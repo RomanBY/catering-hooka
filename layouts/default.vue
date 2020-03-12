@@ -18,11 +18,29 @@
           class="mr-3"
         />
         <v-toolbar-title>
-          <p class="mb-0 ml-5 toolbar__phone">Тел/Telegram:
+          <div>
+            <a href="tel:+375255142795">
+              <v-btn
+                icon
+                :small="isDesktop"
+              >
+                <v-icon>mdi-phone</v-icon>
+              </v-btn>
+            </a>
+            <a href="tg://resolve?domain=@ShishaMinsk">
+              <v-btn
+                icon
+                :small="isDesktop"
+              >
+                <v-icon>mdi-telegram</v-icon>
+              </v-btn>
+            </a>
             <a
+              v-if="isDesktop"
               href="tel:+375255142795"
               class="toolbar__phone-number"
-            >+375 (25) 514-27-95</a></p>
+            >+375 (25) 514-27-95</a>
+          </div>
         </v-toolbar-title>
         <v-spacer />
         <v-toolbar-title

@@ -1,7 +1,10 @@
 <template>
   <v-container class="about">
     <v-row justify="center">
-      <v-col cols="12">
+      <v-col
+        cols="12"
+        xl="8"
+      >
         <v-card
           :img="item.image"
         >

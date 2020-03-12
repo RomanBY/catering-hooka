@@ -3,7 +3,7 @@
     <v-card-title class="reasons__text justify-center my-3">{{ item.title }}</v-card-title>
     <v-img
       class="mb-3"
-      max-height="200"
+      height="200"
       contain
       :src="item.imageUrl"
     />

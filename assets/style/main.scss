@@ -1,4 +1,4 @@
-// @import '~vuetify/dist/vuetify.min';
+@import url(https://fonts.googleapis.com/css?family=Lora:400,700&subset=latin,cyrillic);
 
 ol,
 ul {
@@ -63,6 +63,12 @@ html {
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #737678;
+  }
+}
+
+body {
+  .v-application {
+    font-family: 'Lora', serif !important;
   }
 }
 

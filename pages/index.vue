@@ -5,7 +5,7 @@
     <parallax />
     <reasons />
     <prices />
-    <process v-if="false" />
+    <process />
     <contacts />
   </div>
 </template>

@@ -42,7 +42,10 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     // '@nuxtjs/eslint-module',
     '@nuxt/typescript-build',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    /*['@nuxtjs/google-analytics', {
+      id: 'UA-12301-2'
+    }]*/
   ],
   /*
   ** Nuxt.js modules

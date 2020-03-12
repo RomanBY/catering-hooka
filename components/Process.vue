@@ -19,19 +19,21 @@
               :key="index"
               color="#000000b8"
             >
-              <v-card class="elevation-2 pt-2">
-                <v-img
-                  :src="item.image"
-                  height="80"
-                  contain
-                />
-                <v-card-title class="headline">
-                  <p class="mx-auto mb-0">{{ item.title }}</p>
-                </v-card-title>
-                <v-card-text>
-                  <p class="mb-0 text-center">{{ item.description }}</p>
-                </v-card-text>
-              </v-card>
+              <div :data-aos="isDesktop ? (index % 2 === 0 ? 'fade-left' : 'fade-right') : 'fade-left'">
+                <v-card class="elevation-2 pt-2">
+                  <v-img
+                    :src="item.image"
+                    height="80"
+                    contain
+                  />
+                  <v-card-title class="headline">
+                    <p class="mx-auto mb-0">{{ item.title }}</p>
+                  </v-card-title>
+                  <v-card-text>
+                    <p class="mb-0 text-center">{{ item.description }}</p>
+                  </v-card-text>
+                </v-card>
+              </div>
             </v-timeline-item>
           </v-timeline>
         </v-col>
@@ -55,7 +57,7 @@ export default class Process extends Base {
     {
       title: 'Вы заказываете',
       description: 'Все максимально просто!\n' +
-        'Вы выбираете тип кальяна на странице вашего города и заполняете форму Заявки. Или просто делаете заказ по телефону 8(920) 22-44-77-2. Аренда осуществляется круглосуточно.',
+        'Вы выбираете тип кальяна на странице вашего города и заполняете форму Заявки. Или просто делаете заказ по телефону +375 (29) 514-27-95. Аренда осуществляется круглосуточно.',
       image: '/logo/24-hours-phone-servis.svg'
     },
     {

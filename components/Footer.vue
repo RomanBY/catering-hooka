@@ -32,19 +32,30 @@
                 xl="6"
               >
                 <h2>КОНТАКТЫ</h2>
-                <p class="mt-4 footer__contacts">
-                  <v-icon class="mr-2">mdi-phone</v-icon>
-                  <span>{{ number }}</span>
-                </p>
-                <p class="mt-4 footer__contacts">
-                  <v-icon class="mr-2">mdi-email</v-icon>
-                  qwerty@live.com
-                </p>
-                <div>
+                <div class="my-2">
+                  <a
+                    :href="`tel:${number}`"
+                    class="mt-4 footer__contacts white--text"
+                  >
+                    <v-icon class="mr-2">mdi-phone</v-icon>
+                    <span>{{ number }}</span>
+                  </a>
+                </div>
+                <div class="my-2">
+                  <a
+                    :href="`mailto:${email}`"
+                    class="mt-4 footer__contacts white--text"
+                  >
+                    <v-icon class="mr-2">mdi-email</v-icon>
+                    {{ email }}
+                  </a>
+                </div>
+                <div class="mt-2">
                   <v-btn
                     v-for="(item, index) in socialNetworks"
                     :key="index"
                     class="mx-1"
+                    :class="{ 'ml-0': index === 0 }"
                     fab
                     small
                   >
@@ -61,9 +72,9 @@
             cols="10"
             lg="4"
           >
-            <h2>HOOKAH CARTEL</h2>
-            <p>Часы работы круглосуточно</p>
-            <p>Прием заявок с сайта крулостуточно</p>
+            <h2>ДЫМныйДОМ</h2>
+            <p>Часы работы: круглосуточно</p>
+            <p>Прием заявок с сайта: крулостуточно</p>
           </v-col>
           <v-col
             data-aos="fade-up"
@@ -81,42 +92,42 @@
 </template>
 
 <script lang="ts">
-  import Base from '../core/Base'
-  import { Component } from 'nuxt-property-decorator'
+import Base from '../core/Base'
+import { Component } from 'nuxt-property-decorator'
 
-  @Component
-  export default class FooterBase extends Base {
+@Component
+export default class FooterBase extends Base {
 
-    constructor () {
-      super()
-    }
-
-    number: string = '+375 (33) 333 33 33'
-
-    socialNetworks: object[] = [
-      {
-        icon: 'mdi-vk',
-        color: 'blue',
-        link: ''
-      },
-      {
-        icon: 'mdi-instagram',
-        color: 'orange',
-        link: ''
-      },
-      {
-        icon: 'mdi-telegram',
-        color: 'blue',
-        link: ''
-      },
-      {
-        icon: 'mdi-youtube',
-        color: 'red',
-        link: ''
-      }
-    ]
-
+  constructor () {
+    super()
   }
+
+  number: string = '+375 (25) 514-27-95'
+  email: string = 'dias503@gmail.com'
+
+  socialNetworks: object[] = [
+    {
+      icon: 'mdi-vk',
+      color: 'blue',
+      link: ''
+    },
+    {
+      icon: 'mdi-instagram',
+      color: 'orange',
+      link: ''
+    },
+    {
+      icon: 'mdi-telegram',
+      color: 'blue',
+      link: ''
+    },
+    {
+      icon: 'mdi-youtube',
+      color: 'red',
+      link: ''
+    }
+  ]
+}
 </script>
 <style scoped lang="scss">
   @import "../assets/variables";
@@ -128,7 +139,7 @@
       cursor: pointer;
 
       &:hover {
-        color: $color--menu--text-hover;
+        color: $color--menu--text-hover !important;
       }
     }
   }
