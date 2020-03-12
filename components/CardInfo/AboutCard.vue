@@ -77,10 +77,12 @@ export default class AboutCard extends Base {
 
     &__title {
       font-size: 30px;
+      text-shadow: 0 0 0 white;
     }
 
     &__text {
       font-size: 21px;
+      text-shadow: 0 0 0 white;
     }
   }
 

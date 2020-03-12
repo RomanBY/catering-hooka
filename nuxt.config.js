@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import ru from 'vuetify/src/locale/ru.ts'
 
 export default {
   mode: 'spa',
@@ -14,7 +15,8 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "fog.png" }
     ]
   },
   /*
@@ -68,6 +70,10 @@ export default {
   ** https://github.com/nuxt-community/vuetify-module
   */
   vuetify: {
+    lang: {
+      locales: { ru },
+      current: 'ru'
+    },
     customVariables: ['~/assets/variables.scss'],
     theme: {
       dark: true,
@@ -82,6 +88,22 @@ export default {
           success: colors.green.accent3
         }
       }
+    }
+  },
+  pwa: {
+    workbox: {
+      runtimeCaching: [
+        {
+          urlPattern: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css',
+          handler: 'networkFirst'
+        }
+      ]
+    },
+    manifest: {
+      name: 'ДЫМныйДОМ кейтеринг',
+      lang: 'ru',
+      crossorigin: 'use-credentials',
+      start_url: '/'
     }
   },
   /*

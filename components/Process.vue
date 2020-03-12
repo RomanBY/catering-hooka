@@ -6,9 +6,9 @@
         justify="center"
       >
         <v-col
+          :class="{ 'pl-0': !isDesktop }"
           md="12"
           lg="10"
-          xs="8"
         >
           <v-timeline
             :dense="$vuetify.breakpoint.smAndDown"
