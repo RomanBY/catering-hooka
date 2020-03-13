@@ -66,13 +66,13 @@ export default class MainInfo extends Base {
 
   slides: object[] = [
     {
-      url: require('../assets/img/slider/1.jpg')
+      url: require('../assets/img/slider/foto1.webp')
     },
     {
-      url: require('../assets/img/slider/2.jpg')
+      url: require('../assets/img/slider/foto2.webp')
     },
     {
-      url: require('../assets/img/slider/3.jpg')
+      url: require('../assets/img/slider/foto3.webp')
     }
   ]
 

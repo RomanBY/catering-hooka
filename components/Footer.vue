@@ -20,7 +20,8 @@
             <v-row justify="center">
               <v-col cols="6">
                 <v-img
-                  src="https://hookahcartel.ru/assets/images/logo_footer.jpg"
+                  src="/logo/logo512.png"
+                  height="150"
                   contain
                 />
               </v-col>

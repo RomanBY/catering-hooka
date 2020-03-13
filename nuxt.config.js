@@ -16,7 +16,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: "apple-touch-icon", sizes: "180x180", href: "fog.png" }
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/logo/logo192.png" }
     ]
   },
   /*
@@ -103,7 +103,19 @@ export default {
       name: 'ДЫМныйДОМ кейтеринг',
       lang: 'ru',
       crossorigin: 'use-credentials',
-      start_url: '/'
+      start_url: '/',
+      icons: [
+        {
+          src: '/logo/logo192.png',
+          type: 'image/png',
+          sizes: '192x192'
+        },
+        {
+          src: '/logo/logo512.png',
+          type: 'image/png',
+          sizes: '512x512'
+        }
+      ]
     }
   },
   /*

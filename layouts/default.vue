@@ -4,7 +4,7 @@
       <v-img
         v-show="$route.path === '/'"
         class="bg-image"
-        :src="require('../assets/img/bg/actions-bg.jpg')"
+        :src="require('../assets/img/bg/actions-bg.webp')"
         height="100vh"
       />
       <v-app-bar
@@ -14,7 +14,7 @@
       >
         <v-img
           max-width="50"
-          :src="require('../assets/img/images/fog.png')"
+          :src="require('../assets/img/images/fog.webp')"
           class="mr-3"
         />
         <v-toolbar-title>
@@ -88,11 +88,16 @@
       >
         <div class="d-flex">
           <v-img
-            class="mx-auto"
-            max-width="70"
-            :src="require('../assets/img/images/fog.png')"
+            class="my-auto mt-2"
+            height="80"
+            contain
+            :src="require('../assets/img/images/fog.webp')"
           />
         </div>
+        <div class="d-flex mt-2">
+          <h1 class="mx-auto">ДЫМныйДОМ</h1>
+        </div>
+        <hr class="mt-3">
         <v-list class="mt-5">
           <v-list-item
             v-for="(item, index) in navigation"
@@ -219,6 +224,9 @@ export default class extends Base {
   }
 
   .drawer {
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+
     &__title {
       font-size: 1.3rem;
     }
@@ -231,6 +239,9 @@ export default class extends Base {
   }
 
   .toolbar {
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+
     &__phone {
       font-size: 14px;
 

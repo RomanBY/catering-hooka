@@ -1,7 +1,7 @@
 <template>
   <v-parallax
     dark
-    :src="require('../assets/img/bg/ab2.jpg')"
+    :src="require('../assets/img/bg/ab2.webp')"
     height="600"
   >
     <v-container :class="{ 'px-0': !isDesktop }">
