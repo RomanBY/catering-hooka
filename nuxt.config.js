@@ -101,6 +101,7 @@ export default {
     },
     manifest: {
       name: 'ДЫМныйДОМ кейтеринг',
+      short_name: 'ДЫМныйДОМ кейтеринг',
       lang: 'ru',
       crossorigin: 'use-credentials',
       start_url: '/',

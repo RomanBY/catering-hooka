@@ -18,7 +18,11 @@
             class="d-flex"
           >
             <v-row justify="center">
-              <v-col cols="6">
+              <v-col
+                v-if="isDesktop"
+                class="pt-0"
+                cols="6"
+              >
                 <v-img
                   src="/logo/logo512.png"
                   height="150"
@@ -26,7 +30,8 @@
                 />
               </v-col>
               <v-col
-                cols="10"
+                class="pt-0"
+                cols="11"
                 sm="6"
                 md="6"
                 lg="6"
