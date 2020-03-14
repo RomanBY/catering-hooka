@@ -91,14 +91,6 @@ export default {
     }
   },
   pwa: {
-    workbox: {
-      runtimeCaching: [
-        {
-          urlPattern: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css',
-          handler: 'networkFirst'
-        }
-      ]
-    },
     manifest: {
       name: 'ДЫМныйДОМ кейтеринг',
       short_name: 'ДЫМныйДОМ кейтеринг',
