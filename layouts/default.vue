@@ -14,7 +14,7 @@
       >
         <v-img
           max-width="50"
-          :src="require('../assets/img/images/fog.webp')"
+          src="/logo/logo192.png"
           class="mr-3"
         />
         <v-toolbar-title>
@@ -91,7 +91,7 @@
             class="my-auto mt-2"
             height="80"
             contain
-            :src="require('../assets/img/images/fog.webp')"
+            src="/logo/logo192.png"
           />
         </div>
         <div class="d-flex mt-2">
