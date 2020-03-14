@@ -24,7 +24,7 @@
                 cols="6"
               >
                 <v-img
-                  src="/logo/logo512.png"
+                  src="/logo/logo-footer.png"
                   height="150"
                   contain
                 />

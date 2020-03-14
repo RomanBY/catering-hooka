@@ -4,7 +4,7 @@
       <v-img
         v-show="$route.path === '/'"
         class="bg-image"
-        :src="require('../assets/img/bg/actions-bg.webp')"
+        :src="require('../assets/img/bg/hooka.jpg')"
         height="100vh"
       />
       <v-app-bar
