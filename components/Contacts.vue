@@ -164,8 +164,7 @@
     async getFeedback () {
       const { status } = await axios.post('https://formspree.io/xrgknjey', {
         name: this.name,
-        phone: '+375 ' + this.phone,
-        message: this.message
+        message: '+375 ' + this.phone + ' ' + this.message
       })
       if (status === 200) {
         this.res = {
