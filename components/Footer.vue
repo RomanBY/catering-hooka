@@ -57,16 +57,20 @@
                   </a>
                 </div>
                 <div class="mt-2">
-                  <v-btn
+                  <a
                     v-for="(item, index) in socialNetworks"
                     :key="index"
-                    class="mx-1"
-                    :class="{ 'ml-0': index === 0 }"
-                    fab
-                    small
+                    :href="item.link"
                   >
-                    <v-icon>{{ item.icon }}</v-icon>
-                  </v-btn>
+                    <v-btn
+                      class="mx-1"
+                      :class="{ 'ml-0': index === 0 }"
+                      fab
+                      small
+                    >
+                      <v-icon>{{ item.icon }}</v-icon>
+                    </v-btn>
+                  </a>
                 </div>
               </v-col>
             </v-row>
@@ -113,24 +117,14 @@ export default class FooterBase extends Base {
 
   socialNetworks: object[] = [
     {
-      icon: 'mdi-vk',
-      color: 'blue',
-      link: ''
-    },
-    {
       icon: 'mdi-instagram',
       color: 'orange',
-      link: ''
+      link: 'https://instagram.com/dymdom_minsk'
     },
     {
       icon: 'mdi-telegram',
       color: 'blue',
-      link: ''
-    },
-    {
-      icon: 'mdi-youtube',
-      color: 'red',
-      link: ''
+      link: 'tg://resolve?domain=@ShishaMinsk'
     }
   ]
 }
