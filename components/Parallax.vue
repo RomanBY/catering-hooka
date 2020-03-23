@@ -16,7 +16,7 @@
           >Для нас процесс приготовления кальяна не просто работа, а целое искусство!</h1>
         </v-col>
         <v-col cols="12">
-          <h4 class="subheading text-center">-- Hookah Cartel --</h4>
+          <h4 class="subheading text-center">-- ДЫМнайДОМ --</h4>
         </v-col>
       </v-row>
     </v-container>

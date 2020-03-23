@@ -47,15 +47,6 @@
                     <span>{{ number }}</span>
                   </a>
                 </div>
-                <div class="my-2">
-                  <a
-                    :href="`mailto:${email}`"
-                    class="mt-4 footer__contacts white--text"
-                  >
-                    <v-icon class="mr-2">mdi-email</v-icon>
-                    {{ email }}
-                  </a>
-                </div>
                 <div class="mt-2">
                   <a
                     v-for="(item, index) in socialNetworks"
@@ -83,7 +74,7 @@
             lg="4"
           >
             <h2>ДЫМныйДОМ</h2>
-            <p>Часы работы: круглосуточно</p>
+            <p>Часы работы: с 10:00-22:00</p>
             <p>Прием заявок с сайта: крулостуточно</p>
           </v-col>
           <v-col
@@ -113,7 +104,6 @@ export default class FooterBase extends Base {
   }
 
   number: string = '+375 (25) 514-27-95'
-  email: string = 'dias503@gmail.com'
 
   socialNetworks: object[] = [
     {

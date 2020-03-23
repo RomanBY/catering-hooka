@@ -1,5 +1,5 @@
 <template>
-  <v-container class="about">
+  <v-container class="about-card">
     <v-row justify="center">
       <v-col
         cols="12"
@@ -10,7 +10,7 @@
         >
           <div data-aos="fade-up">
             <v-container class="py-0">
-              <v-row class="justify-center about-bg">
+              <v-row class="justify-center about-card-bg">
                 <v-col
                   cols="12"
                   sm="6"
@@ -19,12 +19,12 @@
                   <v-row class="mx-5">
                     <v-col
                       cols="12"
-                      class="about__title text-center text-sm-left"
+                      class="about-card__title text-center text-sm-left"
                     >{{ item.title }}
                     </v-col>
                     <v-col
                       cols="12"
-                      class="about__text text-center text-sm-left"
+                      class="about-card__text text-center text-sm-left"
                     >
                       {{ item.description }}
                     </v-col>
@@ -70,7 +70,7 @@ export default class AboutCard extends Base {
 <style scoped lang="scss">
   @import "../../assets/variables";
 
-  .about {
+  .about-card {
     &-bg {
       background: #00000069;
     }
@@ -87,7 +87,7 @@ export default class AboutCard extends Base {
   }
 
   @media (max-width: 1263px) {
-    .about {
+    .about-card {
       &__title {
         font-size: 24px;
       }
@@ -99,7 +99,7 @@ export default class AboutCard extends Base {
   }
 
   @media (max-width: 800px) {
-    .about {
+    .about-card {
       &__title {
         font-size: 20px;
         padding-bottom: 0;
@@ -113,7 +113,7 @@ export default class AboutCard extends Base {
   }
 
   @media (max-width: 700px) {
-    .about {
+    .about-card {
       &__title {
         font-size: 18px;
         padding-bottom: 0;
@@ -128,7 +128,7 @@ export default class AboutCard extends Base {
   }
 
   @media (max-width: 599px) {
-    .about {
+    .about-card {
       &__title {
         font-size: 22px;
         padding-bottom: 0;
