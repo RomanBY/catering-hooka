@@ -21,6 +21,12 @@
         </v-card>
       </v-col>
     </v-row>
+    <v-row
+      align="center"
+      justify="center"
+    >
+      <p class="font-weight-thin text-center my-2">за МКАД - 35 копеек/км</p>
+    </v-row>
   </v-container>
 </template>
 
