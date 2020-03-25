@@ -19,8 +19,8 @@
                   <v-row class="mx-5">
                     <v-col
                       cols="12"
-                      class="about-card__title text-center text-sm-left"
-                    >{{ item.title }}
+                      class="text-center text-sm-left"
+                    ><h1 class="about-card__title">{{ item.title }}</h1>
                     </v-col>
                     <v-col
                       cols="12"
