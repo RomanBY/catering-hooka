@@ -2,7 +2,6 @@
   <v-app dark>
     <div v-scroll="onScroll">
       <v-img
-        v-show="$route.path === '/'"
         class="bg-image"
         :src="require('../assets/img/bg/hooka.jpg')"
         height="100vh"
@@ -16,6 +15,7 @@
           max-width="50"
           src="/logo/logo192.png"
           class="mr-3"
+          @click="$vuetify.goTo('html')"
         />
         <v-toolbar-title>
           <div>

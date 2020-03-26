@@ -89,6 +89,10 @@ export default class MainInfo extends Base {
       z-index: 1;
       font-weight: bolder;
 
+      &-text {
+        font-size: 40px;
+      }
+
       &-wrap {
         background: black;
       }
