@@ -30,7 +30,10 @@
                     <p class="mx-auto mb-0">{{ item.title }}</p>
                   </v-card-title>
                   <v-card-text>
-                    <p class="mb-0 text-center">{{ item.description }}</p>
+                    <p
+                      class="mb-0 text-center"
+                      v-html="item.description "
+                    />
                   </v-card-text>
                 </v-card>
               </div>
@@ -56,7 +59,7 @@ export default class Process extends Base {
   process: object[] = [
     {
       title: 'Вы заказываете',
-      description: 'Все максимально просто! Вы выбираете услугу на странице и заполняете форму Заявки. Или просто делаете заказ по телефону +375 (25) 514-27-95.',
+      description: 'Все максимально просто! Вы выбираете услугу на странице и заполняете форму Заявки. Или просто делаете заказ по телефону </br>+375 (25) 514-27-95.',
       image: '/logo/24-hours-phone-servis.svg'
     },
     {

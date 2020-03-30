@@ -11,7 +11,7 @@
       align="center"
       justify="center"
     >
-      <p class="font-weight-thin text-center my-2">Цены указаны ориентировочно, есть возможность изменить количество кальянов и время препровождения</p>
+      <p class="font-weight-thin text-center my-2">Цены указаны ориентировочно. Есть возможность изменить количество кальянов и времяпрепровождения</p>
     </v-row>
     <v-row justify="center">
       <v-col
